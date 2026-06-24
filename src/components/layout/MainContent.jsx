@@ -27,14 +27,14 @@ const MainContent = ({ mainMenuOpen }) => {
               <Dashboard mainMenuOpen={mainMenuOpen} />
 
               {mainMenuOpen && (
-                <h1 className="text-base font-semibold text-white">Communication</h1>
+                <h1 className="text-base text-white">Communication</h1>
               )}
 
               <CampaignsDropdown mainMenuOpen={mainMenuOpen} />
 
               <Tools mainMenuOpen={mainMenuOpen} />
               <Livechat mainMenuOpen={mainMenuOpen} />
-              {mainMenuOpen && <h1 className="text-base font-semibold text-white">Manage</h1>}
+              {mainMenuOpen && <h1 className="text-base text-white">Manage</h1>}
 
               <Numbers mainMenuOpen={mainMenuOpen} />
 
@@ -46,7 +46,7 @@ const MainContent = ({ mainMenuOpen }) => {
             </ul>
           </div>
       <div className="px-4 pb-8 mb-1 ">
-            {mainMenuOpen && <h1 className="text-base font-semibold text-white">Personal</h1>}
+            {mainMenuOpen && <h1 className="text-base  text-white">Personal</h1>}
 
             <div className="flex items-start  gap-3 ">
               <img

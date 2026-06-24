@@ -9,9 +9,9 @@ const Contacts = ({ mainMenuOpen }) => {
     <>
       <li
         onClick={() => setOpen(!open)}
-        className="flex items-center cursor-pointer gap-2 justify-base justify-between px-2 py-2 rounded-md hover:bg-[#005A9C]"
+        className="flex items-center cursor-pointer gap-2 text-base justify-between px-2 py-2 rounded-md hover:bg-[#005A9C]"
       >
-        <div className="flex items-center gap-3 text-xl text-white">
+        <div className="flex items-center gap-3  text-white">
           <img
             src="/navbar/address-book.svg"
             alt="address-logo"
