@@ -16,13 +16,13 @@ const MainContent = ({ mainMenuOpen }) => {
   return (
     <div className="flex flex-1">
       <div
-        className={`fixed left-0 top-[60px]
+        className={`fixed left-0 top-[67px]
   bg-[#006EC2] transition-all duration-300 overflow-hidden gap-2
-  ${mainMenuOpen ? "w-[240px]" : "w-[70px]"}
+  ${mainMenuOpen ? "w-[250px]" : "w-[70px]"}
   h-[calc(100vh-67px)]`}
       >
         <div className="flex flex-col justify-between h-full">
-          <div className="flex-1 mt-2 ml-4 mr-4 overflow-hidden">
+          <div className="flex-1 mt-2 ml-4 mr-4 overflow-y-auto">
             <ul className="mt-4 space-y-1">
               <Home mainMenuOpen={mainMenuOpen} />
               <Dashboard mainMenuOpen={mainMenuOpen} />
@@ -93,7 +93,7 @@ const MainContent = ({ mainMenuOpen }) => {
       </div>
       <div
         className={`flex-1 min-w-0 transition-all duration-300 pt-[67px]
-  ${mainMenuOpen ? "ml-[240px]" : "ml-[60px]"}`}
+  ${mainMenuOpen ? "ml-[250px]" : "ml-[70px]"}`}
       >
         <Outlet />
       </div>

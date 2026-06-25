@@ -1,4 +1,4 @@
-import { NavLink} from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import React from "react";
 
@@ -7,7 +7,7 @@ const Tools = ({ mainMenuOpen, activeDropdown, setActiveDropdown }) => {
   return (
     <>
       <li
-        onClick={() => setActiveDropdown(open ? null : "numbers")}
+        onClick={() => setActiveDropdown(open ? null : "tools")}
         className="flex items-center gap-3 px-2 text-base cursor-pointer py-2 justify-between rounded-md hover:bg-[#005A9C]"
       >
         <div className="flex items-center gap-2 text-white">
