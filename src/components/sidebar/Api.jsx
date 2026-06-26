@@ -1,21 +1,27 @@
 import React from "react";
+import { NavLink, useLocation } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
-import { NavLink } from "react-router-dom";
 
 const Api = ({ mainMenuOpen, activeDropdown, setActiveDropdown }) => {
-  // Check whether the API dropdown is expanded
-  const open = activeDropdown === "api";
+  const location = useLocation();
+
+  const isApiActive = location.pathname.startsWith("/api");
+  const open = activeDropdown === "api" || isApiActive;
 
   return (
     <>
-      {/* API parent menu item */}
       <motion.li
         layout
-        onClick={() => setActiveDropdown(open ? null : "api")}
-        className="flex items-center gap-2 cursor-pointer text-sm justify-between px-2 py-2 rounded-md hover:bg-[#005A9C]"
+        onClick={() =>
+          setActiveDropdown(activeDropdown === "api" ? null : "api")
+        }
+        className={`flex items-center justify-between gap-2 cursor-pointer text-sm px-2 py-2 rounded-lg transition-colors ${
+          isApiActive
+            ? "bg-[#005A9C] text-white"
+            : "text-white hover:bg-[#005A9C]"
+        }`}
       >
-        {/* API icon and label */}
-        <div className="flex items-center gap-2 text-white">
+        <div className="flex items-center gap-2">
           <img
             src="/navbar/code.svg"
             alt="code-logo"
@@ -25,7 +31,6 @@ const Api = ({ mainMenuOpen, activeDropdown, setActiveDropdown }) => {
           {mainMenuOpen && <span>API</span>}
         </div>
 
-        {/* Dropdown expand/collapse indicator */}
         {mainMenuOpen && (
           <motion.img
             src="/cheveron-down.svg"
@@ -40,7 +45,6 @@ const Api = ({ mainMenuOpen, activeDropdown, setActiveDropdown }) => {
         )}
       </motion.li>
 
-      {/* Animated submenu */}
       <AnimatePresence initial={false}>
         {open && (
           <motion.ul
@@ -58,13 +62,18 @@ const Api = ({ mainMenuOpen, activeDropdown, setActiveDropdown }) => {
               },
             }}
             style={{ willChange: "height, opacity" }}
-            className="overflow-hidden ml-2 mt-2 space-y-0.5 text-sm text-white"
+            className="overflow-hidden mt-1 space-y-1 text-sm text-white"
           >
-            {/* HTTP API navigation link */}
             <li>
               <NavLink
                 to="/api/http-api"
-                className="flex items-center gap-2 px-2 py-2 rounded-lg hover:bg-[#005A9C] text-white"
+                className={({ isActive }) =>
+                  `flex items-center gap-2 px-2 py-2 rounded-lg ${
+                    isActive
+                      ? "bg-[#005A9C] text-white"
+                      : "text-white hover:bg-[#005A9C]"
+                  }`
+                }
               >
                 <img
                   src="/navbar/reports/inbox.svg"

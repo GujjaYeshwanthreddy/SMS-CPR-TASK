@@ -1,21 +1,32 @@
-import React from "react";
-import { NavLink } from "react-router-dom";
+import React, { useEffect } from "react";
+import { NavLink, useLocation } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 
 const Reports = ({ mainMenuOpen, activeDropdown, setActiveDropdown }) => {
-  // Check whether the Reports dropdown is expanded
+  const location = useLocation();
+
+  const isReportsActive = location.pathname.startsWith("/reports");
   const open = activeDropdown === "reports";
+
+  // Opens the Reports menu automatically when a reports page is active.
+  useEffect(() => {
+    if (isReportsActive) {
+      setActiveDropdown("reports");
+    }
+  }, [isReportsActive, setActiveDropdown]);
 
   return (
     <>
-      {/* Reports parent menu item */}
       <motion.li
         layout
         onClick={() => setActiveDropdown(open ? null : "reports")}
-        className="flex items-center justify-between gap-2 px-2 py-2 cursor-pointer text-sm rounded-lg hover:bg-[#005A9C]"
+        className={`flex items-center justify-between gap-2 px-2 py-2 cursor-pointer text-sm rounded-lg transition-colors ${
+          isReportsActive
+            ? "bg-[#005A9C] text-white"
+            : "text-white hover:bg-[#005A9C]"
+        }`}
       >
-        {/* Reports icon and label */}
-        <div className="flex items-center gap-2 text-white">
+        <div className="flex items-center gap-2">
           <img
             src="/navbar/file-chart-column.svg"
             alt="file-chart-logo"
@@ -25,7 +36,6 @@ const Reports = ({ mainMenuOpen, activeDropdown, setActiveDropdown }) => {
           {mainMenuOpen && <span>Reports</span>}
         </div>
 
-        {/* Dropdown expand/collapse indicator */}
         {mainMenuOpen && (
           <motion.img
             src="/cheveron-down.svg"
@@ -40,7 +50,6 @@ const Reports = ({ mainMenuOpen, activeDropdown, setActiveDropdown }) => {
         )}
       </motion.li>
 
-      {/* Animated Reports submenu */}
       <AnimatePresence initial={false}>
         {open && (
           <motion.ul
@@ -62,9 +71,8 @@ const Reports = ({ mainMenuOpen, activeDropdown, setActiveDropdown }) => {
               },
             }}
             style={{ willChange: "height, opacity" }}
-            className="overflow-hidden ml-2 mt-2 space-y-1 text-sm text-white"
+            className="overflow-hidden  space-y-1 text-sm text-white"
           >
-            {/* Campaign Status navigation link */}
             <li>
               <NavLink
                 to="/reports/campaign-status"
@@ -85,12 +93,11 @@ const Reports = ({ mainMenuOpen, activeDropdown, setActiveDropdown }) => {
               </NavLink>
             </li>
 
-            {/* Inbox navigation link */}
             <li>
               <NavLink
                 to="/reports/inbox"
                 className={({ isActive }) =>
-                  `flex items-center gap-2 px-2 py-1.5 rounded-lg ${
+                  `flex items-center gap-2 px-2 py-2 rounded-lg ${
                     isActive
                       ? "bg-[#005A9C] text-white"
                       : "text-white hover:bg-[#005A9C]"
