@@ -37,7 +37,7 @@ const MainContent = ({ mainMenuOpen }) => {
 
               {/* Communication section */}
               {mainMenuOpen && (
-                <h1 className="text-sm text-white mt-2 mb-2 px-3">
+                <h1 className="text-sm text-white mt-1 mb-2 px-3">
                   Communication
                 </h1>
               )}
@@ -59,7 +59,7 @@ const MainContent = ({ mainMenuOpen }) => {
 
               {/* Management section */}
               {mainMenuOpen && (
-                <h1 className="text-sm text-white mt-2 mb-2 px-2">
+                <h1 className="text-sm text-white mt-1 mb-2 px-2">
                   Manage
                 </h1>
               )}
@@ -94,7 +94,7 @@ const MainContent = ({ mainMenuOpen }) => {
           {/* Fixed bottom section */}
           <div>
             {mainMenuOpen && (
-              <h1 className="text-sm text-white mt-2 mb-2 px-2">
+              <h1 className="text-sm text-white mt-1 mb-2 px-2">
                 Personal
               </h1>
             )}

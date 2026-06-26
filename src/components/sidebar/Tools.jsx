@@ -11,7 +11,7 @@ const Tools = ({ mainMenuOpen, activeDropdown, setActiveDropdown }) => {
       {/* Tools parent menu item */}
       <li
         onClick={() => setActiveDropdown(open ? null : "tools")}
-        className="flex items-center gap-2 px-2 text-sm cursor-pointer py-1 justify-between rounded-lg hover:bg-[#005A9C]"
+        className="flex items-center gap-2 px-2 text-sm cursor-pointer py-2 justify-between rounded-lg hover:bg-[#005A9C]"
       >
         {/* Tools icon and label */}
         <div className="flex items-center gap-2 text-white">
